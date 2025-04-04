@@ -6,6 +6,8 @@ module Decidim
       class AnalyticsController < Analytics::Admin::ApplicationController
 
         def index
+          enforce_permission_to :read, :analytics
+
           @server_address = Rails.application.secrets.dig(:matomo, :server_address)
           @site_id = Rails.application.secrets.dig(:matomo, :site_id)
           @token_auth = Rails.application.secrets.dig(:matomo, :token_auth)
