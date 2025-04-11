@@ -4,7 +4,6 @@ module Decidim
   module Analytics
     module Admin
       class AnalyticsController < Analytics::Admin::ApplicationController
-
         def index
           enforce_permission_to :read, :analytics
 
